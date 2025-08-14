@@ -58,14 +58,14 @@ function App() {
 
   function validate() {
 
-    const nameRegex = new RegExp("^[A-Za-z\s]{2,}$")
-    const addressRegex = new RegExp("^[A-Za-z0-9\s,-.]{10,}$")
+    const nameRegex = new RegExp("^[A-Za-z\\s]{2,}$")
+    const addressRegex = new RegExp("^[A-Za-z0-9\\s,-.]{10,}$")
 
     if (!name.current?.value || !nameRegex.test(name.current.value)) {
       Banner.setBannerData({
       type: "Error",
       heading: "Validation Error",
-      message: "Name is required to be atleast 3 characters",
+      message: "Name is Invalid or too short",
       })
       return false
     }
@@ -73,7 +73,7 @@ function App() {
       Banner.setBannerData({
         type: "Error",
         heading: "Validation Error",
-        message: "Address is required",
+        message: "Address is Invalid or too short",
       })
       return false
     }
